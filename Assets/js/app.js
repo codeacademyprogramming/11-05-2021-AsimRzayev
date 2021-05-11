@@ -115,6 +115,7 @@ class UI {
     </tr>    
       `;
      employeeTbHeading.innerHTML=langresult;
+     document.querySelector("#welcome").innerHTML=lang.welcome;
   }
 
 }

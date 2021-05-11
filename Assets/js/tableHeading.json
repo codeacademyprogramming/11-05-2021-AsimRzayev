@@ -10,6 +10,7 @@
  "username":"Username",
  "password":"Parol",
  "registereddate":"Qeydiyyat vaxtı",
+ "welcome":"Xoş gəldin",
  "selected":true
 },
 {
@@ -23,6 +24,7 @@
  "username":"Username",
  "password":"Password",
  "registereddate":"Registered date",
+ "welcome":"Welcome",
  "selected":false
 },
 {
@@ -36,6 +38,7 @@
     "username":"имя пользователя ",
     "password":"Пароль",
     "registereddate":"Зарегистрированное время",
+    "welcome":"Добро пожаловать",
     "selected":false
 }
 ]
