@@ -12,7 +12,9 @@ let btnRegister=document.querySelector("#Register")
 let userName=document.querySelector("#username")
 let nameSurname=document.querySelector("#NameSurname")
 let mail=document.querySelector("#Mail");
+let password=document.querySelector("#password");
 let checkUsername=document.querySelector("#checkusername");
+let checkpassword=document.querySelector("#checkpassword");
 let loginBTN=document.querySelector("#loginBTN");
 let mainSection=document.querySelector("#MainSection");
 let BtnLogout=document.querySelector("#LogOut")
@@ -271,12 +273,13 @@ class Storages{
   {
     return JSON.parse(localStorage.getItem("langs"));
   }
-  static setSessionUser(username,nameSurname,mail)
+  static setSessionUser(username,password,nameSurname,mail)
   {
     let users={
       "username":username,
       "nameSurname":nameSurname,
-      "mail":mail
+      "mail":mail,
+      "password":password
     }
     sessionStorage.setItem("user",JSON.stringify(users))
   }
@@ -404,8 +407,8 @@ if(!Storages.getSessionUser())
 
   btnRegister.addEventListener("click",(e)=>{
     e.preventDefault();
-    if(username.value!="" && nameSurname.value!="" && mail.value!="" ){
-    Storages.setSessionUser(username.value,nameSurname.value,mail.value)
+    if(username.value!="" && password.value!="" && nameSurname.value!=""){
+    Storages.setSessionUser(username.value,password.value,nameSurname.value,mail.value)
 
     document.querySelector("#register").setAttribute("style","display:none")
     document.querySelector("#login").setAttribute("style","display:block")
@@ -417,8 +420,8 @@ if(!Storages.getSessionUser())
   })
   loginBTN.addEventListener("click",(e)=>{
     e.preventDefault();
-    
-    if(Storages.getSessionUser().username==checkUsername.value)
+    let userInfo=Storages.getSessionUser();
+    if(userInfo.username==checkUsername.value && userInfo.password==checkpassword.value )
     {
       Storages.setCookieUser(checkUsername.value,1)
       mainSection.setAttribute("style","display:block")
@@ -435,9 +438,24 @@ if(!Storages.getSessionUser())
     window.location.reload();
     Storages.deleteCookieUser(Storages.getSessionUser().username,1);
   })
+  document.querySelector("#showPassword").addEventListener("click",()=>{
+    if(password.type=="password")
+    {
+      password.type="text";
+      document.querySelector("#showPassword").style.color="blue"
+    }
+    else
+    {
+      password.type="password";
+      document.querySelector("#showPassword").style.color="black"
+    }
+
+  });
+
 document.querySelector("#logregister").addEventListener("click",()=>{
   var currentUser=Storages.getSessionUser();
   userName.value=currentUser.username;
+  password.value=currentUser.password;
   nameSurname.value=currentUser.nameSurname;
   userName.value=currentUser.username;
   mail.value=currentUser.mail;
@@ -456,6 +474,7 @@ document.querySelector("#userLoginName").innerHTML=Storages.getCookieUser();
     }
     
   })
+
 
  
 });
