@@ -1,0 +1,32 @@
+[
+{
+ "lang":"az",
+ "nameSurname":"Ad Soyad",
+ "image":"Şəkil",
+ "activeLoan":"Akiv borc",
+ "wage":"Aylıq gəlir",
+ "totalPayment":"Ümumi aylıq ödəniş",
+ "applyStatus":"Müraciət status",
+ "selected":true
+},
+{
+    "lang":"en",
+    "nameSurname":"Name&Surname",
+    "image":"Image",
+    "activeLoan":"Aktive Loan",
+    "wage":"Wage/Month",
+    "totalPayment":"Total Payment",
+    "applyStatus":"Apply Status",
+    "selected":false
+},
+{
+    "lang":"ru",
+    "nameSurname":"Имя&Фамилия",
+    "image":"Изображение",
+    "activeLoan":"Активный заем",
+    "wage":"Месячная зарплата",
+    "totalPayment":"Всего к оплате",
+    "applyStatus":"Применить статус",
+    "selected":false
+}
+]

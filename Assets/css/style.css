@@ -1,0 +1,32 @@
+.modal-dialog {
+    max-width: 65%; /* New width for default modal */
+  }
+  #MainSection{
+    display: none;
+  }
+  #login{
+     display: none; 
+  }
+  #login .container #login-row #login-column #login-box,
+  #register .container #login-row #login-column #login-box  {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    max-width: 600px;
+   min-height: 50px;
+    border: 1px solid #9C9C9C;
+    background-color: #EAEAEA;
+  }
+  #login .container #login-row #login-column #login-box #login-form,
+  #register .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+  }
+  #login .container #login-row #login-column #login-box #login-form input,
+  #register .container #login-row #login-column #login-box #login-form input {
+    margin-top: 10px;
+  }
+  #logregister
+  {
+    float: right !important;
+    margin-top: 20px;
+    display: inline-block;
+  }

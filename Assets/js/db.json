@@ -1,0 +1,214 @@
+[
+    {
+      "id":1,
+      "img": "./Assets/images/Screenshot_3.png",
+      "name": "Asim",
+      "loans": [
+        {
+          "amount": { "value": 22000, "currency": "AZN" },
+          "closed": true,
+          "loaner": "Bank of Trauny",
+          "period": { "type": "month", "value": 36 },
+          "perMonth": { "value": 700, "currency": "AZN" },
+          "dueAmount": { "value": 0, "currency": "AZN" },
+          "loanPeriod": { "end": "22.01.2022", "start": "22.01.2019" },
+          "interestRate": 18
+        },
+        {
+          "amount": { "value": 5000, "currency": "AZN" },
+          "closed": true,
+          "loaner": "TBC",
+          "period": { "type": "month", "value": 12 },
+          "perMonth": { "value": 416.66, "currency": "AZN" },
+          "dueAmount": { "value": 0, "currency": "AZN" },
+          "loanPeriod": { "end": "03.01.2022", "start": "03.01.2021" },
+          "interestRate": 22
+        },
+        {
+          "amount": { "value": 8500, "currency": "AZN" },
+          "closed": true,
+          "loaner": "Revolut",
+          "period": { "type": "month", "value": 24 },
+          "dueAmount": { "value": 0, "currency": "AZN" },
+          "loanPeriod": { "end": "22.01.2018", "start": "22.01.2016" },
+          "interestRate": 19
+        }
+      ],
+      "salary": { "value": 1300, "currency": "AZN" },
+      "surname": "Manıyev",
+      "hasSalaryCard": true,
+      "hasLoanHistory": false
+    },
+    {
+        "id":2,
+        "img": "./Assets/images/Screenshot_5.png",
+        "name": "Vusal",
+        "loans": [
+          {
+            "amount": { "value": 22000, "currency": "AZN" },
+            "closed": false,
+            "loaner": "Bank of Baku",
+            "period": { "type": "month", "value": 36 },
+            "perMonth": { "value": 611.11, "currency": "AZN" },
+            "dueAmount": { "value": 4200, "currency": "AZN" },
+            "loanPeriod": { "end": "22.01.2022", "start": "22.01.2019" },
+            "interestRate": 18
+          },
+          {
+            "amount": { "value": 5000, "currency": "AZN" },
+            "closed": false,
+            "loaner": "UniBank",
+            "period": { "type": "month", "value": 12 },
+            "perMonth": { "value": 416.66, "currency": "AZN" },
+            "dueAmount": { "value": 2916, "currency": "AZN" },
+            "loanPeriod": { "end": "03.01.2022", "start": "03.01.2021" },
+            "interestRate": 22
+          },
+          {
+            "amount": { "value": 5200, "currency": "AZN" },
+            "closed": true,
+            "loaner": "Kapital Bank",
+            "period": { "type": "month", "value": 12 },
+            "perMonth": { "value": 245.66, "currency": "AZN" },
+            "dueAmount": { "value": 0, "currency": "AZN" },
+            "loanPeriod": { "end": "03.01.2022", "start": "03.01.2021" },
+            "interestRate": 22
+          }
+        ],
+        "salary": { "value": 4500, "currency": "AZN" },
+        "surname": "Qurbanlı",
+        "hasSalaryCard": true,
+        "hasLoanHistory": true
+      },
+      {
+        "id":3,
+        "img": "./Assets/images/Screenshot_2.png",
+        "name": "Yolcu",
+        "loans": [
+          {
+            "amount": { "value": 22000, "currency": "AZN" },
+            "closed": true,
+            "loaner": "Pasa Bank",
+            "period": { "type": "month", "value": 36 },
+            "perMonth": { "value": 611.11, "currency": "AZN" },
+            "dueAmount": { "value": 0, "currency": "AZN" },
+            "loanPeriod": { "end": "22.01.2022", "start": "22.01.2019" },
+            "interestRate": 18
+          },
+          {
+            "amount": { "value": 5000, "currency": "AZN" },
+            "closed": false,
+            "loaner": "Bank Respublika",
+            "period": { "type": "month", "value": 12 },
+            "perMonth": { "value": 416.66, "currency": "AZN" },
+            "dueAmount": { "value": 2916, "currency": "AZN" },
+            "loanPeriod": { "end": "03.01.2022", "start": "03.01.2021" },
+            "interestRate": 22
+          },
+          {
+            "amount": { "value": 8500, "currency": "AZN" },
+            "closed": true,
+            "loaner": "AzerTurk Bank",
+            "period": { "type": "month", "value": 24 },
+            "dueAmount": { "value": 0, "currency": "AZN" },
+            "loanPeriod": { "end": "22.01.2018", "start": "22.01.2016" },
+            "interestRate": 19
+          }
+        ],
+        "salary": { "value": 4500, "currency": "AZN" },
+        "surname": "Qocayev",
+        "hasSalaryCard": true,
+        "hasLoanHistory": true
+      },
+      {
+        "id":4,
+        "img": "./Assets/images/Screenshot_8.png",
+        "name": "Valeh",
+        "loans": [
+          {
+            "amount": { "value": 22000, "currency": "AZN" },
+            "closed": false,
+            "loaner": "Bank of Trauny",
+            "period": { "type": "month", "value": 36 },
+            "perMonth": { "value": 611.11, "currency": "AZN" },
+            "dueAmount": { "value": 4200, "currency": "AZN" },
+            "loanPeriod": { "end": "22.01.2022", "start": "22.01.2019" },
+            "interestRate": 18
+          },
+          {
+            "amount": { "value": 5000, "currency": "AZN" },
+            "closed": false,
+            "loaner": "TBC",
+            "period": { "type": "month", "value": 12 },
+            "perMonth": { "value": 416.66, "currency": "AZN" },
+            "dueAmount": { "value": 2916, "currency": "AZN" },
+            "loanPeriod": { "end": "03.01.2022", "start": "03.01.2021" },
+            "interestRate": 22
+          },
+          {
+            "amount": { "value": 8500, "currency": "AZN" },
+            "closed": true,
+            "loaner": "Revolut",
+            "period": { "type": "month", "value": 24 },
+            "dueAmount": { "value": 0, "currency": "AZN" },
+            "loanPeriod": { "end": "22.01.2018", "start": "22.01.2016" },
+            "interestRate": 19
+          }
+        ],
+        "salary": { "value": 2200, "currency": "AZN" },
+        "surname": "Carciyev",
+        "hasSalaryCard": true,
+        "hasLoanHistory": true
+      },
+      {
+        "id":5,
+        "img": "./Assets/images/page2.jpg",
+        "name": "Perviz",
+        "loans": [
+          {
+            "amount": { "value": 22000, "currency": "AZN" },
+            "closed": true,
+            "loaner": "Test1",
+            "period": { "type": "month", "value": 36 },
+            "perMonth": { "value": 611.11, "currency": "AZN" },
+            "dueAmount": { "value": 0, "currency": "AZN" },
+            "loanPeriod": { "end": "22.01.2022", "start": "22.01.2019" },
+            "interestRate": 18
+          },
+          {
+            "amount": { "value": 5000, "currency": "AZN" },
+            "closed": true,
+            "loaner": "Test2",
+            "period": { "type": "month", "value": 12 },
+            "perMonth": { "value": 416.66, "currency": "AZN" },
+            "dueAmount": { "value": 0, "currency": "AZN" },
+            "loanPeriod": { "end": "03.01.2022", "start": "03.01.2021" },
+            "interestRate": 22
+          },
+          {
+            "amount": { "value": 8500, "currency": "AZN" },
+            "closed": true,
+            "loaner": "Test3",
+            "period": { "type": "month", "value": 24 },
+            "dueAmount": { "value": 0, "currency": "AZN" },
+            "loanPeriod": { "end": "22.01.2018", "start": "22.01.2016" },
+            "interestRate": 19
+          },
+            {
+            "amount": { "value": 8500, "currency": "AZN" },
+            "closed": true,
+            "loaner": "Test4",
+            "period": { "type": "month", "value": 24 },
+            "dueAmount": { "value": 0, "currency": "AZN" },
+            "loanPeriod": { "end": "22.01.2018", "start": "22.01.2016" },
+            "interestRate": 19
+          }
+
+        ],
+        "salary": { "value": 3200, "currency": "AZN" },
+        "surname": "Emenov",
+        "hasSalaryCard": true,
+        "hasLoanHistory": true
+      }
+
+]
