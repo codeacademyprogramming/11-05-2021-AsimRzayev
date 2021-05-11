@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 if(!Storages.getSessionUser())
 {
-
+  
 }
  else if(Storages.getCookieUser()!==undefined)
   {
