@@ -98,24 +98,24 @@ class UI {
       });
       langSelect.innerHTML=langRes;
   }
-  // static changeTableHeading(lang)
-  // {
-  //   let langresult=`
-  //     <tr>
-  //     <th scope="col">${lang.nameSurname}</th>
-  //     <th scope="col">${lang.image}</th>
-  //     <th scope="col">${lang.email}</th>
-  //     <th scope="col">${lang.cell}</th>
-  //     <th scope="col">${lang.location}</th>
-  //     <th scope="col">${lang.gender}</th>
-  //     <th scope="col">${lang.username}</th>
-  //     <th scope="col">${lang.password}</th>
-  //     <th scope="col">${lang.registereddate}</th>
-  //     <th></th>
-  //   </tr>    
-  //     `;
-  //    employeeTbHeading.innerHTML=langresult;
-  // }
+  static changeTableHeading(lang)
+  {
+    let langresult=`
+      <tr>
+      <th scope="col">${lang.nameSurname}</th>
+      <th scope="col">${lang.image}</th>
+      <th scope="col">${lang.email}</th>
+      <th scope="col">${lang.cell}</th>
+      <th scope="col">${lang.location}</th>
+      <th scope="col">${lang.gender}</th>
+      <th scope="col">${lang.username}</th>
+      <th scope="col">${lang.password}</th>
+      <th scope="col">${lang.registereddate}</th>
+      <th></th>
+    </tr>    
+      `;
+     employeeTbHeading.innerHTML=langresult;
+  }
 
 }
 //Storage
