@@ -23,6 +23,7 @@
   #login .container #login-row #login-column #login-box #login-form input,
   #register .container #login-row #login-column #login-box #login-form input {
     margin-top: 10px;
+ 
   }
   #logregister
   {
@@ -31,6 +32,7 @@
     display: inline-block;
   }
   #showPassword
+
   {
     font-size: 20px;
     position:relative;

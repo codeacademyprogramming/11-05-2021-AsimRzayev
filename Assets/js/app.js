@@ -439,14 +439,16 @@ if(!Storages.getSessionUser())
     Storages.deleteCookieUser(Storages.getSessionUser().username,1);
   })
   document.querySelector("#showPassword").addEventListener("click",()=>{
-    if(password.type=="password")
+    if(password.type=="password" ||  checkpassword.type=="password")
     {
+      checkpassword.type="text"
       password.type="text";
       document.querySelector("#showPassword").style.color="blue"
     }
     else
     {
       password.type="password";
+      checkpassword.type="password";
       document.querySelector("#showPassword").style.color="black"
     }
 
