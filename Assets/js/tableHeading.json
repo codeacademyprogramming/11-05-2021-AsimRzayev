@@ -11,6 +11,7 @@
  "password":"Parol",
  "registereddate":"Qeydiyyat vaxtı",
  "welcome":"Xoş gəldin",
+ "theme":"#F0F5F9",
  "selected":true
 },
 {
@@ -25,6 +26,7 @@
  "password":"Password",
  "registereddate":"Registered date",
  "welcome":"Welcome",
+ "theme":"#c9d6df",
  "selected":false
 },
 {
@@ -39,6 +41,7 @@
     "password":"Пароль",
     "registereddate":"Зарегистрированное время",
     "welcome":"Добро пожаловать",
+    "theme":"#a7bbc7",
     "selected":false
 }
 ]

@@ -31,6 +31,9 @@
     margin-top: 20px;
     display: inline-block;
   }
+  #DataTable{
+    max-width: 100%;
+  }
   #showPassword
 
   {
