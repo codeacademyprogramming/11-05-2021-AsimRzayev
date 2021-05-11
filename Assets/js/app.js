@@ -122,13 +122,13 @@ class UI {
 
 class Storages{
 
-  static saveSessionCustomers(customers)
+  static saveSessionEmployees(employess)
   {
-    sessionStorage.setItem("customers",JSON.stringify(customers))
+    sessionStorage.setItem("employees",JSON.stringify(employess))
   }
-  static getSessionCustomers()
+  static getSessionEmployees()
   {
-    return JSON.parse(sessionStorage.getItem("customers"));
+    return JSON.parse(sessionStorage.getItem("employees"));
   }
   static saveLocalLang(langs)
   {
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 if(!Storages.getSessionUser())
 {
-  
+
 }
  else if(Storages.getCookieUser()!==undefined)
   {
@@ -212,8 +212,8 @@ if(!Storages.getSessionUser())
 
 
   employee.getEmployee().then((data) => {
-  
-    UI.displayEmployee(data.results)
+    Storages.saveSessionEmployees(data.results);
+    UI.displayEmployee(Storages.getSessionEmployees())
   });
  
   langs.getLangs().then(lang=>{
