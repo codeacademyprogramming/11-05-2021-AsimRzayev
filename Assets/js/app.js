@@ -47,75 +47,42 @@ class Langs{
 
 class UI {
   static displayEmployee(employees) {
+   
     let result = "";
-    employees.forEach((customer) => {
-      let activeLoans = false;
-      let loans = customer.loans;
-      let loansLength = Object.keys(loans).length;
-      let totalPayment = 0;
-      let isApply = true;
-      let hasLoanHistory=true;
+    employees.forEach((employeeItem) => {
 
-      //ActiveLoansStatus
-      for (let i = 0; i < loansLength; i++) {
-        if (loans[i].closed != true) {
-          activeLoans = true;
-          break;
-        } else {
-          activeLoans = false;
-        }
-      }
-      //TotalPayment
-
-      for (let i = 0; i < loansLength; i++) {
-        if (loans[i].dueAmount.value != 0) {
-          totalPayment += loans[i].perMonth.value;
-        }
-      }
-      //ApplayLoan
-      if (customer.salary.value * 0.45 > totalPayment) {
-        isApply = true;
-      } else {
-        isApply = false;
-      }
-      //hasLoanHistory
  
-      result += `  <tr>
+     result += `  <tr>
      
-      <td>${customer.name} ${customer.surname}</td>
-       <td style="width:15%" >
-			      <img src="${customer.img}" style="height:auto" class="w-100 img-fluid img-thumbnail" alt="${customer.name} image">
+      <td>${employeeItem.name.title}.${employeeItem.name.first} ${employeeItem.name.last} </td>
+       <td style="width:10%" >
+			      <img src="${employeeItem.picture.large}" style="height:auto" class="w-100 img-fluid img-thumbnail" alt="" image">
 	    </td>
-      <td>${customer.salary.value} ${customer.salary.currency}</td>
-      <td>  <div class="form-check">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        disabled
-        ${activeLoans ? `checked` : ``}
-        value="" 
-        id="flexCheckDefault"
-      />
-    </div> 
+      <td>
+      ${employeeItem.email}
       </td>
       <td>
-       ${totalPayment.toFixed(2)} ${customer.loans[0].perMonth.currency}
-      </td>
-     
-      <td>
-      ${
-        isApply
-          ? `<button type="button" class="btn btn-success disabled">Uyğundur</button>`
-          : ` <button type="button" class="btn btn-danger disabled">Uyğun deyil</button>`
-      }
+      ${employeeItem.cell}
       </td>
       <td>
-      ${(customer.hasLoanHistory?` <button data-id=${customer.id} type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary btnLoanHistory">Kredit Tarixçəsi</button>` : ` <button type="button" data-id=${customer.id} class="btn btn-warning " disabled>Kredit Tarixçəsi Yoxdur</button> ` )}
-  
+      ${employeeItem.location.country}- ${employeeItem.location.city}:${employeeItem.location.street.number}..${employeeItem.location.street.name}
+      </td>
+      <td>
+      ${employeeItem.gender}
+      </td>
+      <td>
+      ${employeeItem.login.username}
+      </td>
+      <td>
+      ${employeeItem.login.password}
+      </td>
+      <td>
+      ${employeeItem.registered.date}
       </td>
     </tr>`;
     });
-    customerDOM.innerHTML = result;
+
+    employeeDOM.innerHTML = result;
   }
 
   static displayLangs(langs){
@@ -131,21 +98,24 @@ class UI {
       });
       langSelect.innerHTML=langRes;
   }
-  static changeTableHeading(lang)
-  {
-    let langresult=`
-      <tr>
-      <th scope="col">${lang.nameSurname}</th>
-      <th scope="col">${lang.image}</th>
-      <th scope="col">${lang.activeLoan}</th>
-      <th scope="col">${lang.wage}</th>
-      <th scope="col">${lang.totalPayment}</th>
-      <th scope="col">${lang.applyStatus}</th>
-      <th></th>
-    </tr>    
-      `;
-     employeeTbHeading.innerHTML=langresult;
-  }
+  // static changeTableHeading(lang)
+  // {
+  //   let langresult=`
+  //     <tr>
+  //     <th scope="col">${lang.nameSurname}</th>
+  //     <th scope="col">${lang.image}</th>
+  //     <th scope="col">${lang.email}</th>
+  //     <th scope="col">${lang.cell}</th>
+  //     <th scope="col">${lang.location}</th>
+  //     <th scope="col">${lang.gender}</th>
+  //     <th scope="col">${lang.username}</th>
+  //     <th scope="col">${lang.password}</th>
+  //     <th scope="col">${lang.registereddate}</th>
+  //     <th></th>
+  //   </tr>    
+  //     `;
+  //    employeeTbHeading.innerHTML=langresult;
+  // }
 
 }
 //Storage
@@ -242,7 +212,8 @@ if(!Storages.getSessionUser())
 
 
   employee.getEmployee().then((data) => {
-    console.log(data.results)
+  
+    UI.displayEmployee(data.results)
   });
  
   langs.getLangs().then(lang=>{
