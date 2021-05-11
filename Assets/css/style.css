@@ -42,3 +42,13 @@
  top: 20px;
  left: -30px;
   }
+
+  .welcomeText
+  {
+    position: relative;
+    margin: 0px;
+    font-size: 4em;
+    font-weight: 900;
+    z-index: 1;
+    overflow: hidden;
+  }
