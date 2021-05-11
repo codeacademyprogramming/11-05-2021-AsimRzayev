@@ -1,13 +1,6 @@
-let customerDOM = document.querySelector("#customerDatas");
-let modalTitle=document.querySelector('.modal-title');
-let loanersDOM=document.querySelector('#loanersDOM');
-let customersTbHeading=document.querySelector("#tableHeading");
+let employeeDOM = document.querySelector("#customerDatas");
+let employeeTbHeading=document.querySelector("#tableHeading");
 let langSelect=document.querySelector(".custom-select");
-let btnLoanHistory=document.querySelector('.btnLoanHistory');
-let filterActiveLoan=document.querySelectorAll(".filterActiveLoan");
-let filterName=document.querySelector("#filterName");
-let minValue=document.querySelector("#minValue");
-let maxValue=document.querySelector("#maxValue");
 let btnRegister=document.querySelector("#Register")
 let userName=document.querySelector("#username")
 let nameSurname=document.querySelector("#NameSurname")
@@ -18,33 +11,18 @@ let checkpassword=document.querySelector("#checkpassword");
 let loginBTN=document.querySelector("#loginBTN");
 let mainSection=document.querySelector("#MainSection");
 let BtnLogout=document.querySelector("#LogOut")
-//getting Customers
-class Customer {
+//getting Employee
+class Employee {
 
-  async getCustomers() {
+  async getEmployee() {
     try {
-      let result = await fetch("assets/js/db.json");
+      let result = await fetch("https://randomuser.me/api/");
       let data = await result.json();
-      let customers = data.map((item) => {
-        const { id, name, surname, img, salary, loans,hasLoanHistory } = item;
-        return { id, name, surname, img, salary, loans,hasLoanHistory };
-      });
-      return customers;
+  
+      return data;
     } catch (error) {
      
     }
-  }
-  async getCustomerById(id)
-  {
-    try {
-        let customItem = await fetch("assets/js/db.json");
-        let customData = await customItem.json();
-        
-        return customData[id-1];
-      } catch (error) {
-       
-      }
-
   }
 }
 class Langs{
@@ -64,69 +42,13 @@ class Langs{
 
 }
 
-class FilterDatas
-{
-    filterActiveLoan(customers,filterText)
-    {
-      
-  
-      
-                switch(filterText)
-                {
-                    case "All":
-                      UI.displayCustomers(customers);
-                      if(filterName.value!="")
-                      this.filterCustomerName(customers,filterName.value)
-                        
-                    break;
-                    case "Active":
-                         let aktive=customers.filter(x=>x.loans.filter(x=>x.closed!=true).length>1)
-                         UI.displayCustomers(aktive);
-                         if(filterName.value!="")
-                         this.filterCustomerName(aktive,filterName.value)
-                    break;
-                    case "Deactive":
-                    let deaktive=customers.filter(x=>x.loans.filter(x=>x.closed!=false).length>1)
-                        UI.displayCustomers(deaktive);
-                        if(filterName.value!="")
-                        this.filterCustomerName(deaktive,filterName.value)
-                    break;
-                }
-         
-    }
-    filterCustomerName(customers,filterNameparam)
-    {
-      
-  console.log(filterNameparam)
-      if(filterNameparam!=null)
-        customers=customers.filter(x=>x.name.toLowerCase().includes(filterNameparam.toLowerCase()) || x.surname.toLowerCase().includes(filterNameparam.toLowerCase() )); 
-         
-      this.filterActiveLoan(customers,filterActiveLoan);
-      UI.displayCustomers(customers);
-     
- 
-    }
 
-    filterMinMaxValue(customers,minValue=0,maxValue=100000000)
-    {
-      
-      if(maxValue==0)
-      {
-        maxValue=100000;
-      }
-      minValue=Number(minValue);
-      maxValue=Number(maxValue)
-      
-        customers=customers.filter(x=>x.salary.value>=Number(minValue) && x.salary.value<=Number(maxValue)); 
-         UI.displayCustomers(customers);
-    }
-}
-//Display Customers
+//Display Employee
 
 class UI {
-  static displayCustomers(customers) {
+  static displayEmployee(employees) {
     let result = "";
-    customers.forEach((customer) => {
+    employees.forEach((customer) => {
       let activeLoans = false;
       let loans = customer.loans;
       let loansLength = Object.keys(loans).length;
@@ -195,34 +117,7 @@ class UI {
     });
     customerDOM.innerHTML = result;
   }
-  displayLoanTable(loaners){
-    console.log(loaners)
-    let loanersResult="";
-    loaners.forEach(loan=>{
-        loanersResult+=`
-        <tr>
-        <td >${loan.loaner}</td>
-        <td >${loan.amount.value} ${loan.amount.currency}</td>
-        <td>  <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          disabled
-          ${!loan.closed ? `checked` : ``}
-          value="" 
-          id="flexCheckDefault"
-        />
-      </div> 
-        </td>
-     <td >${loan.dueAmount.value!=0 ? loan.perMonth.value +` ` +  loan.perMonth.currency:`<span class="text-success font-weight-bold">Ödənilib</span>`}</td>
-        <td >${loan.dueAmount.value} ${loan.dueAmount.currency}</td>
-        <td >${loan.loanPeriod.start} - ${loan.loanPeriod.end}</td>
-      </tr>
 
-        `
-    })
-    loanersDOM.innerHTML=loanersResult;
-  }
   static displayLangs(langs){
    
     let langRes=""
@@ -249,7 +144,7 @@ class UI {
       <th></th>
     </tr>    
       `;
-      customersTbHeading.innerHTML=langresult;
+     employeeTbHeading.innerHTML=langresult;
   }
 
 }
@@ -321,7 +216,10 @@ class Storages{
 
 document.addEventListener("DOMContentLoaded", () => {
   
-  
+  const ui = new UI();
+  const employee = new Employee();
+  const langs=new Langs();
+
 if(!Storages.getSessionUser())
 {
 
@@ -338,38 +236,13 @@ if(!Storages.getSessionUser())
     document.querySelector("#login").setAttribute("style","display:block")
   }
 
-  const ui = new UI();
-  const customer = new Customer();
-  const filteritems=new FilterDatas();
+
  
-  const langs=new Langs();
+ 
 
-  customer.getCustomers().then((data) => {
-    Storages.saveSessionCustomers(data);
-    UI.displayCustomers(Storages.getSessionCustomers());
-    filterName.addEventListener("keyup",()=>{
-      filteritems.filterCustomerName(data,filterName.value)
-    })
-    filterName.addEventListener("keydown",()=>{
-      filteritems.filterCustomerName(data,filterName.value)
-    })
-    minValue.addEventListener("keyup",MaxMinValue)
-    minValue.addEventListener("change",MaxMinValue)
-    minValue.addEventListener("click",MaxMinValue)
 
-    maxValue.addEventListener("keyup",MaxMinValue)
-    maxValue.addEventListener("change",MaxMinValue)
-    maxValue.addEventListener("click",MaxMinValue)
-    for (let i = 0; i < Array.from(filterActiveLoan).length; i++) {
-      filterActiveLoan=Array.from(filterActiveLoan);
-      filterActiveLoan[i].addEventListener("change",function(e){
-          let filterText=e.target.value;
-          filteritems.filterActiveLoan(data,filterText);
-      })
-    }
-    function MaxMinValue(){
-      filteritems.filterMinMaxValue(data,minValue.value,maxValue.value);
-    }
+  employee.getEmployee().then((data) => {
+    console.log(data.results)
   });
  
   langs.getLangs().then(lang=>{
@@ -469,10 +342,7 @@ document.querySelector("#userLoginName").innerHTML=Storages.getCookieUser();
     
     if(e.target.tagName=="BUTTON")
     {
-        let dataid=e.target.getAttribute('data-id');
-        customer.getCustomerById(dataid).then(data=>{
-            ui.displayLoanTable(data.loans)
-        })
+        
     }
     
   })
